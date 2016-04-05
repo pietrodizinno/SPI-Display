@@ -44,9 +44,21 @@ Lesser General Public License for more details.
 #define Start_page		0x00
 #define	StartLine_set	0x00
 
+
+//**	GENERAL PURPOSE		**//
+unsigned int say,hamal;
+unsigned char temp,i;
+unsigned char ID[2];
+unsigned char INP[4];
+
+static bit bilgi;
+//////////////////////////////////////////////////////
+
+
 void SetByte(unsigned char CMD);
 void WriteByte(unsigned char CMD);
 void Set_Contrast(unsigned char Value);
+
 
 void Delay(unsigned long T){
 														while (T!=0)
@@ -60,7 +72,7 @@ digitalWrite(CD,LOW);
 for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
-	               SDA=(bit)(temp&0x80);  //0x80
+								 digitalWrite(SDA,(bit)(temp&0x80));  //0x80
                  Delay(1);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
@@ -77,7 +89,7 @@ digitalWrite(CD,HIGH);
 for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
-	               SDA=(bit)(temp&0x80);  //0x80
+	               digitalWrite(SDA,(bit)(temp&0x80));  //0x80
                  Delay(1);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
