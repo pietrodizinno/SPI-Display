@@ -62,6 +62,7 @@ void Set_Contrast(unsigned char Value);
 
 
 void Delay(unsigned long T){
+														T=T*4096;
 														while (T!=0)
 															T--;
 													}
@@ -297,15 +298,19 @@ void main(void){
 
 
 	LCD_Initial();
+	printf("LCD INIT....\n");
 	Delay(1000);
-  SetByte(REVERSE_DISPLAY_OFF);
+	printf("LCD INIT OK.\n");
+	SetByte(REVERSE_DISPLAY_OFF);
   SetByte(ENTIRE_DISPLAY_OFF);
 
   Write_Picture(pic);
+	printf("WRITE PIC OK.\n");
 	Delay(500000);
+	printf("WRITE OK.\n");
 	hamal=0;
   Display_Numara(1,hamal);
-
+	printf("WRITE NUMBER.\n");
 
 	while(1){}
 
