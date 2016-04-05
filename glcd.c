@@ -75,7 +75,7 @@ for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
 								 digitalWrite(SDA,temp&0x80?1:0);  //0x80
-                 Delay(5000);
+                 Delay(15000);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
 	               CMD=temp;
@@ -95,7 +95,7 @@ for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
 	               digitalWrite(SDA,temp&0x80?1:0);  //0x80
-                 Delay(5000);
+                 Delay(15000);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
 	               CMD=temp;
@@ -305,11 +305,12 @@ void main(void){
 
 	LCD_Initial();
 	printf("LCD INIT....\n");
-	Delay(1000);
+	Delay(31000);
 	printf("LCD INIT OK.\n");
 	SetByte(REVERSE_DISPLAY_OFF);
+	Delay(3100);
   SetByte(ENTIRE_DISPLAY_OFF);
-
+	Delay(5100);
   Write_Picture(pic);
 	printf("WRITE PIC OK.\n");
 	Delay(500000);
