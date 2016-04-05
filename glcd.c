@@ -235,7 +235,7 @@ unsigned char num[]={ //numerik 0...9
 
 
 
-void Write_number(unsigned char code *n,unsigned char k,unsigned char station_dot){
+void Write_number(unsigned char *n,unsigned char k,unsigned char station_dot){
 
 unsigned char i;
 			for(i=0;i<8;i++)
