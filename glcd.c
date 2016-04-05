@@ -192,7 +192,7 @@ void LCD_Initial(void){
 	                 Delay(250);
 									 Resistor_Select(0x06);
 	                 Delay(250);
-									 Set_Contrast(15);//deniyorum
+									 Set_Contrast(33);//deniyorum
 	                 Delay(250);
 									 Dispay_Line(0x00);
 	                 Delay(250);
@@ -311,7 +311,7 @@ void main(void){
 	Delay(3100);
   SetByte(ENTIRE_DISPLAY_OFF);
 	Delay(5100);
-  Write_Picture(pic);
+  //Write_Picture(pic);
 	printf("WRITE PIC OK.\n");
 	Delay(500000);
 	printf("WRITE OK.\n");
