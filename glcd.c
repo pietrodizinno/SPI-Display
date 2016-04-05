@@ -74,8 +74,8 @@ digitalWrite(CD,LOW);
 for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
-								 digitalWrite(SDA,(temp&0x80)==1?1:0);  //0x80
-                 Delay(1);
+								 digitalWrite(SDA,temp&0x80);  //0x80
+                 Delay(100);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
 	               CMD=temp;
@@ -91,8 +91,8 @@ digitalWrite(CD,HIGH);
 for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
-	               digitalWrite(SDA,(temp&0x80)==1?1:0);  //0x80
-                 Delay(1);
+	               digitalWrite(SDA,temp&0x80);  //0x80
+                 Delay(100);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
 	               CMD=temp;
