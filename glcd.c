@@ -18,6 +18,8 @@ Lesser General Public License for more details.
 ================================================================================
  */
 #include <wiringPi.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define CS           15 /*          */
 #define RST          14 /*              */
@@ -282,6 +284,16 @@ unsigned char sayi[5];
 }
 
 void main(void){
+
+		printf("Orange Pi Custom Display test\n");
+		printf("==================+++====================\n");
+
+		// check wiringPi setup
+		if (wiringPiSetup() == -1)
+		{
+		printf("wiringPi-Error\n");
+			exit(1);
+		}
 
 
 	LCD_Initial();
