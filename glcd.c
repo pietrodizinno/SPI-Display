@@ -62,42 +62,48 @@ void Set_Contrast(unsigned char Value);
 
 
 void Delay(unsigned long T){
-														T=T*4096;
 														while (T!=0)
 															T--;
 													}
 
 void SetByte(unsigned char CMD){
 digitalWrite(CS,LOW);
+Delay(500);
 digitalWrite(CD,LOW);
-
+Delay(2500);
 for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
-								 digitalWrite(SDA,temp&0x80);  //0x80
-                 Delay(100);
+								 digitalWrite(SDA,temp&0x80?1:0);  //0x80
+                 Delay(5000);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
 	               CMD=temp;
                 }
+Delay(2500);
 digitalWrite(CS,HIGH);
+Delay(500);
 digitalWrite(CD,LOW);
 }
 
 void WriteByte(unsigned char CMD){
 digitalWrite(CS,LOW);
+Delay(500);
 digitalWrite(CD,HIGH);
-
+Delay(2500);
 for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
                  temp=CMD;
-	               digitalWrite(SDA,temp&0x80);  //0x80
-                 Delay(100);
+	               digitalWrite(SDA,temp&0x80?1:0);  //0x80
+                 Delay(5000);
 	               digitalWrite(SCK,HIGH);
                  temp=CMD<<1;  // <<
 	               CMD=temp;
                 }
+
+Delay(2500);
 digitalWrite(CS,HIGH);
+Delay(500);
 digitalWrite(CD,LOW);
 }
 
