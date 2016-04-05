@@ -72,13 +72,12 @@ Delay(500);
 digitalWrite(CD,LOW);
 Delay(2500);
 for(i=0;i<8;i++){
-	               digitalWrite(SCK,LOW);
-                 temp=CMD;
-								 digitalWrite(SDA,temp&0x80?1:0);  //0x80
-                 Delay(15000);
-	               digitalWrite(SCK,HIGH);
-                 temp=CMD<<1;  // <<
-	               CMD=temp;
+								digitalWrite(SCK,LOW);
+								Delay(150);
+								digitalWrite(SDA,!!(CMD & (1 << (7 - i))));  //0x80
+								Delay(15000);
+								digitalWrite(SCK,HIGH);
+								Delay(150);
                 }
 Delay(2500);
 digitalWrite(CS,HIGH);
@@ -93,12 +92,11 @@ digitalWrite(CD,HIGH);
 Delay(2500);
 for(i=0;i<8;i++){
 	               digitalWrite(SCK,LOW);
-                 temp=CMD;
-	               digitalWrite(SDA,temp&0x80?1:0);  //0x80
+								 Delay(150);
+	               digitalWrite(SDA,!!(CMD & (1 << (7 - i))));  //0x80
                  Delay(15000);
 	               digitalWrite(SCK,HIGH);
-                 temp=CMD<<1;  // <<
-	               CMD=temp;
+								 Delay(150);
                 }
 
 Delay(2500);
