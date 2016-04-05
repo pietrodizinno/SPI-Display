@@ -20,6 +20,7 @@ Lesser General Public License for more details.
 #include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 #define CS           15 /*          */
 #define RST          14 /*              */
